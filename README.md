@@ -1,3 +1,7 @@
+[![Maintainability](https://qlty.sh/badges/67193556-307e-47e6-bd10-835bfd7d25be/maintainability.svg)](https://qlty.sh/gh/mxclg/projects/telegram-video-bot)
+
+---
+
 # video-downloader-telegram-bot
 
 I’ve started working on a Telegram bot that helps download and share videos.
