@@ -15,14 +15,17 @@ bot.start((ctx) => {
 bot.on("text", async (ctx) => {
   const message = ctx.message.text;
 
-  if (message.startsWith("http")) {
-    const url = message;
+  if (message.startsWith("https://")) {
+    const videoUrl = message;
     await ctx.reply("Сейчас скачаю видео…");
 
-    const output = `video_${Date.now()}.mp4`;
-    const filePath = path.join("/tmp", output);
+    const videoTimeStamp = new Date()
+      .toISOString()
+      .replace(/[^a-zA-Z0-9]/g, "");
+    const videoName = `video_${videoTimeStamp}.mp4`;
+    const filePath = path.join("/tmp", videoName);
 
-    exec(`yt-dlp -o "${filePath}" "${url}"`, async (err) => {
+    exec(`yt-dlp -o "${filePath}" "${videoUrl}"`, async (err) => {
       if (err) {
         await ctx.reply("Не удалось скачать видео 😢");
         return;
