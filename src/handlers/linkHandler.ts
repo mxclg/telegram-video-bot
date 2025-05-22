@@ -13,7 +13,7 @@ export const linkHandler = async (ctx: Context) => {
 
   if (message.startsWith("https://")) {
     const videoUrl = message;
-    await ctx.reply("Сейчас скачаю видео…");
+    const statusMessage = await ctx.reply("Сейчас скачаю видео…");
 
     const videoTimeStamp = new Date()
       .toISOString()
@@ -29,6 +29,7 @@ export const linkHandler = async (ctx: Context) => {
 
       try {
         await ctx.replyWithVideo({ source: filePath });
+        await ctx.deleteMessage(statusMessage.message_id);
       } catch {
         await ctx.reply("Не удалось отправить видео.");
       } finally {
