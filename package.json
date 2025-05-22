@@ -9,7 +9,6 @@
   },
   "keywords": [],
   "author": "mxclg",
-  "type": "module",
   "license": "ISC",
   "description": "Telegram bot for a video download",
   "dependencies": {
